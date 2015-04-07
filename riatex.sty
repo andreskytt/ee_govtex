@@ -1,0 +1,59 @@
+% EE_GOV LaTex package
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{riatex}
+  [2015/04/06 v0.01 Estonian document template LaTeX package]
+
+\RequirePackage{tgpagella}
+\RequirePackage[condensed]{roboto}
+\RequirePackage{titlesec}
+
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+
+\RequirePackage[estonian]{babel}
+\RequirePackage{kvoptions}
+
+\DeclareStringOption{logo}[0_infosys_3lovi_est_cmyk.pdf]
+\ProcessKeyvalOptions*
+
+\def\@date{\today}
+\newcommand{\setdate}[1]{\def\@date{#1}}
+\newcommand{\show@date}{\@date}
+
+\fancypagestyle{followingpage}{%
+	\fancyhf{}
+	\addtolength{\headheight}{40pt}
+	\fancyhead[EL,OL]{\includegraphics[height=12mm,clip=true,trim=3mm 0mm 0mm 0mm]{\riatex@logo}}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[LE,RO]{\thepage}
+}
+\pagestyle{followingpage}
+
+\titleformat{\section}
+  {\normalfont\robotocondensed\Large\bfseries}
+  {\thesection\hskip 9pt$|$\hskip 2pt}{0em}{}
+
+
+\titleformat{\subsection}
+  {\normalfont\robotocondensed\large\bfseries}
+  {\thesubsection\hskip 2pt$|$\hskip 2pt}{0em}{}
+
+\makeatletter         
+	\def\@maketitle{
+\clearpage\thispagestyle{empty}
+		\raggedright
+		\vspace*{-5cm}
+		\includegraphics[height=32mm,clip=true,trim=3mm 0mm 0mm 0mm]{\riatex@logo}\\[5cm]
+		\begin{center}
+		{\Huge \bfseries \sffamily \@title }\\[4ex] 
+		{\Large \robotocondensed \@author}\\[4ex] 
+		{\sffamily \@date\\[8ex]}
+	\end{center}}
+\makeatother
+
+
+
+%%
+%% End of file `riatex.sty'.
+
