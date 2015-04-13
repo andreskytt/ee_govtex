@@ -1,0 +1,69 @@
+\mode<presentation>
+
+
+\usecolortheme{eegov}
+\usefonttheme{eegov}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\itemBullet}{•}
+
+\setbeamertemplate{itemize item}{\itemBullet}
+\setbeamertemplate{itemize subitem}{\itemBullet}
+\setbeamertemplate{itemize subsubitem}{\itemBullet}
+
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \usebeamerfont{section title}
+	\begin{center}
+		\insertsection
+	\end{center}
+  \end{frame}
+}
+
+\newcommand{\plain}[1][]{%
+\begin{frame}
+	\begin{beamercolorbox}[wd=\paperwidth, ht=.25\paperheight]{fg=black, bg=white}
+		\begin{beamercolorbox}[ht=.25\paperheight,leftskip=7mm]{bg=white}
+			\includegraphics[height=18mm,clip=true,trim=3mm 0mm 0mm 0mm]{\logo}
+			\vskip3mm
+		\end{beamercolorbox}
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=\paperwidth, ht=.75\paperheight]{thx}
+	    \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
+	      \usebeamerfont{title}\okthxbye\\[8mm]
+	      \usebeamerfont{author}\insertauthor\\[.1mm]%
+	      \usebeamerfont{date}\epost\\[32mm]%
+	    \end{beamercolorbox}
+	\end{beamercolorbox}
+
+\end{frame}
+}
+
+\defbeamertemplate*{frametitle}{eegov}[1][]
+{
+\vskip6mm%
+        {\Large \insertframetitle}
+}
+
+\defbeamertemplate*{title page}{texsx}[1][]
+{
+        \begin{beamercolorbox}[wd=\paperwidth, ht=.25\paperheight]{fg=black, bg=white}
+                \begin{beamercolorbox}[ht=.25\paperheight,leftskip=7mm]{bg=white}
+                        \includegraphics[height=18mm,clip=true,trim=3mm 0mm 0mm 0mm]{\logo}
+                        \vskip3mm
+                \end{beamercolorbox}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=\paperwidth, ht=.75\paperheight]{thx}
+            \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
+              \usebeamerfont{title}\inserttitle\\[8mm]
+              \usebeamerfont{author}\insertauthor\\[.1mm]%
+              \usebeamerfont{institute}\insertinstitute\\[6mm]%
+              \usebeamerfont{date}\insertdate\\[32mm]%
+            \end{beamercolorbox}
+        \end{beamercolorbox}
+}
+
+\mode<all>
+
