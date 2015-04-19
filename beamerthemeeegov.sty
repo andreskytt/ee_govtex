@@ -34,7 +34,7 @@
 	    \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
 	      \usebeamerfont{title}\okthxbye\\[8mm]
 	      \usebeamerfont{author}\insertauthor\\[.1mm]%
-	      \usebeamerfont{date}\epost\\[32mm]%
+	      \usebeamerfont{date}\epost[32mm]%
 	    \end{beamercolorbox}
 	\end{beamercolorbox}
 
@@ -56,12 +56,15 @@
                 \end{beamercolorbox}
         \end{beamercolorbox}
         \begin{beamercolorbox}[wd=\paperwidth, ht=.75\paperheight]{thx}
-            \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
-              \usebeamerfont{title}\inserttitle\\[8mm]
-              \usebeamerfont{author}\insertauthor\\[.1mm]%
-              \usebeamerfont{institute}\insertinstitute\\[6mm]%
-              \usebeamerfont{date}\insertdate\\[32mm]%
-            \end{beamercolorbox}
+		\vbox to.75\paperheight{
+		    \vskip2mm
+		    \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
+		      \usebeamerfont{title}\inserttitle\\[8mm]
+		      \usebeamerfont{author}\insertauthor\\[.1mm]%
+		      \usebeamerfont{institute}\insertinstitute\\[6mm]%
+		      \usebeamerfont{date}\insertdate\\[1mm]%
+		    \end{beamercolorbox}
+		\vfil}
         \end{beamercolorbox}
 }
 
