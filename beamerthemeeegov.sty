@@ -4,6 +4,7 @@
 \usecolortheme{eegov}
 \usefonttheme{eegov}
 
+\RequirePackage{setspace}
 \setbeamertemplate{navigation symbols}{}
 
 \newcommand{\itemBullet}{•}
@@ -59,7 +60,9 @@
 		\vbox to.75\paperheight{
 		    \vskip2mm
 		    \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
-		      \usebeamerfont{title}\inserttitle\\[8mm]
+% The spacing parameter has no apparent effect but without the environment, the linespread is huge. Fix this if you can
+		      \begin{spacing}{0.1}{\usebeamerfont{title}\inserttitle}\end{spacing}
+		      \vskip9mm
 		      \usebeamerfont{author}\insertauthor\\[.1mm]%
 		      \usebeamerfont{institute}\insertinstitute\\[6mm]%
 		      \usebeamerfont{date}\insertdate\\[1mm]%
