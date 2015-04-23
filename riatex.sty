@@ -8,6 +8,12 @@
 \RequirePackage[condensed]{roboto}
 \RequirePackage{titlesec}
 
+% Babel ei nimeta lisasid õigesti
+\RequirePackage[title,titletoc]{appendix}
+\renewcommand{\appendixname}{Lisa}
+\renewcommand{\appendixtocname}{Lisa}
+\renewcommand{\appendixpagename}{Lisa}
+
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
 
@@ -21,6 +27,9 @@
 \def\@date{\today}
 \newcommand{\setdate}[1]{\def\@date{#1}}
 \newcommand{\show@date}{\@date}
+
+%Mõistlikud vahed lõikudel
+\setlength{\parskip}{1.3ex plus 0.5ex minus 0.3ex}
 
 %Logo päises
 \fancypagestyle{followingpage}{%
