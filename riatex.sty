@@ -11,6 +11,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
 
+% Siit poolitusreeglid ja õiged nimed dokumendi osadele
 \RequirePackage[estonian]{babel}
 \RequirePackage{kvoptions}
 
@@ -21,6 +22,7 @@
 \newcommand{\setdate}[1]{\def\@date{#1}}
 \newcommand{\show@date}{\@date}
 
+%Logo päises
 \fancypagestyle{followingpage}{%
 	\fancyhf{}
 	\addtolength{\headheight}{40pt}
@@ -30,16 +32,20 @@
 }
 \pagestyle{followingpage}
 
+% Kenad pealkirjafondid
 \titleformat{\section}
   {\normalfont\robotocondensed\Large\bfseries}
   {\thesection\hskip 9pt$|$\hskip 2pt}{0em}{}
-
 
 \titleformat{\subsection}
   {\normalfont\robotocondensed\large\bfseries}
   {\thesubsection\hskip 2pt$|$\hskip 2pt}{0em}{}
 
-\makeatletter         
+\titleformat{\subsubsection}
+  {\normalfont\robotocondensed\bfseries}
+  {\thesubsubsection\hskip 2pt$|$\hskip 2pt}{0em}{}
+
+%Tiitelleht
 	\def\@maketitle{
 \clearpage\thispagestyle{empty}
 		\raggedright
@@ -52,7 +58,9 @@
 	\end{center}}
 \makeatother
 
-
+% Mõistlik sisukord
+\let\oldtoci\tableofcontents
+\renewcommand{\tableofcontents}{\oldtoci\vfill\pagebreak}
 
 %%
 %% End of file `riatex.sty'.
