@@ -7,6 +7,8 @@
 \RequirePackage{tgpagella}
 \RequirePackage[condensed]{roboto}
 \RequirePackage{titlesec}
+\RequirePackage{color}
+\RequirePackage{hyperref}
 
 % Babel ei nimeta lisasid õigesti
 \RequirePackage[title,titletoc]{appendix}
@@ -30,6 +32,10 @@
 
 %Mõistlikud vahed lõikudel
 \setlength{\parskip}{1.3ex plus 0.5ex minus 0.3ex}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
 
 %Logo päises
 \fancypagestyle{followingpage}{%
@@ -61,7 +67,18 @@
 		\vspace*{-5cm}
 		\includegraphics[height=32mm,clip=true,trim=3mm 0mm 0mm 0mm]{\riatex@logo}\\[5cm]
 		\begin{center}
-		{\Huge \bfseries \sffamily \@title }\\[4ex] 
+		{\Huge \bfseries \sffamily \@title }\\[6ex] 
+		\ifpunane
+			{\Huge \color{red} \sffamily FP Punane dokument}\\[4mm]
+		\else
+			\ifkollane
+				{\Huge \color{yellow} \sffamily FP Kollane dokument}\\[4mm]
+			\else
+				\ifroheline
+					{\Huge \color{green} \sffamily FP Roheline dokument}\\[4mm]
+				\fi
+			\fi
+		\fi
 		{\Large \robotocondensed \@author}\\[4ex] 
 		{\sffamily \@date\\[8ex]}
 	\end{center}}
@@ -71,6 +88,24 @@
 \let\oldtoci\tableofcontents
 \renewcommand{\tableofcontents}{\oldtoci\vfill\pagebreak}
 
+% Fooriprotokoll
+\newif\ifpunane
+\newif\ifkollane
+\newif\ifroheline
+
+\newcommand{\fooriprotokoll}{
+	\ifpunane
+		\par{\bfseries Saaja ei tohi FP PUNASE värviga tähistatud teavet jagada ühegi osalisega, kes ei ole seotud konkreetse teabevahetuse, kohtumise või vestlusega, mille käigus teavet algselt avaldatakse. Vaata lähemalt \url{https://www.ria.ee/fooriprotokoll/}.}\par
+	\else
+		\ifkollane
+			\par{\bfseries Saaja tohib jagada FP KOLLASE värviga tähistatud teavet üksnes oma organisatsiooni liikmetega ja/või partneritega, kellel on otsene teadmisvajadus, ning vaid sellises ulatuses, kuivõrd on vajalik teabe põhjal tegutsemiseks. Vaata lähemalt \url{https://www.ria.ee/fooriprotokoll/}.}\par
+		\else
+			\ifroheline
+			\par{\bfseries Saaja võib jagada FP ROHELISE värviga tähistatud teavet oma valdkonna või ringkonna partnerite ja partnerorganisatsioonidega, kuid seda ei tohi teha avalike kanalite kaudu. Vaata lähemalt \url{https://www.ria.ee/fooriprotokoll/}.}\par
+			\fi
+		\fi
+	\fi
+}
 %%
 %% End of file `riatex.sty'.
 
