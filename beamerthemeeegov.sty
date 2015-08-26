@@ -59,11 +59,19 @@
         \end{beamercolorbox}
         \begin{beamercolorbox}[wd=\paperwidth, ht=.75\paperheight]{thx}
 		\vbox to.75\paperheight{
-		    \vskip2mm
+		    \vskip4mm
 		    \begin{beamercolorbox}[wd=\paperwidth,leftskip=27mm]{author}
-% The spacing parameter has no apparent effect but without the environment, the linespread is huge. Fix this if you can
-		      \begin{spacing}{0.1}{\usebeamerfont{title}\inserttitle}\end{spacing}
-		      \vskip9mm
+% The spacing parameter changes the spacing between paragraphs, not lines. Fix this if you can
+		      \begin{spacing}{1.6}{\usebeamerfont{title}\inserttitle}\end{spacing}
+% This is added later: subtitle
+    \ifx\insertsubtitle\@empty%
+	\vskip18mm
+    \else%                                                                                                                                                         
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%                                                                                    
+	\vskip9mm
+    \fi%               
+% End subtitle section
+		      %\vskip9mm
 		      \usebeamerfont{author}\insertauthor\\[.1mm]%
 		      \usebeamerfont{institute}\insertinstitute\\[6mm]%
 		      \usebeamerfont{date}\insertdate\\[1mm]%
