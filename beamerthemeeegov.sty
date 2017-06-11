@@ -5,6 +5,7 @@
 \usefonttheme{eegov}
 
 \RequirePackage{setspace}
+\RequirePackage{tikz}
 \setbeamertemplate{navigation symbols}{}
 
 \newcommand{\itemBullet}{•}
@@ -78,7 +79,23 @@
 		    \end{beamercolorbox}
 		\vfil}
         \end{beamercolorbox}
+	\tikzset{
+		  every overlay node/.style={
+			      anchor=south east,
+			        },
+			}
+	\def\tikzoverlay{%
+	   \tikz[baseline,overlay]\node[every overlay node]
+	}%
+	
+	\ifeu
+	\tikzoverlay at (.9\paperwidth,.1\paperheight) {
+		\includegraphics[width=.2\paperwidth]{el_struktuuri-ja_investeerimisfondid_horisontaalne.pdf}
+	};
+	\fi
+	
 }
+\newif\ifeu
 
 \mode<all>
 
